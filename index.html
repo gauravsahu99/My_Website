@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="Advanced Electronics Services Company offering Industrial Automation, IT solutions, IoT Gateway, Embedded Systems & Firmware Development." />
+<meta name="keywords" content="Industrial Automation, PLC, SCADA, IT Solutions, Electronic Circuit Design, IoT Gateway, Embedded Systems, Firmware Development" />
+<meta name="author" content="Advanced Electronics Services" />
+<title>Advanced Electronics Services - Industrial Automation & IoT Solutions</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background: #0d1117;
+    color: #c9d1d9;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  a {
+    color: #36c2a6; /* updated logo color on links */
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+    color: #2a9d83;
+  }
+  img {
+    max-width: 100%;
+  }
+  main {
+    flex-grow: 1;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: #c9d1d9;
+    font-weight: 700;
+    scroll-margin-top: 80px;
+  }
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+  /* Increased h3 size */
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #8b949e;
+  }
+  button, input[type="submit"] {
+    background: #36c2a6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover, input[type="submit"]:hover {
+    background: #2a9d83;
+  }
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  /* Navbar */
+  header {
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  .logo {
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #36c2a6;
+    user-select: none;
+    font-family: 'Segoe UI Black', Arial Black, Arial, sans-serif;
+    letter-spacing: 1.2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    font-weight: 600;
+  }
+  .nav-links a {
+    color: #8b949e;
+    font-size: 1rem;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: #36c2a6;
+  }
+  /* Mobile Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #36c2a6;
+    margin-bottom: 5px;
+    border-radius: 3px;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      background-color: #161b22;
+      height: calc(100vh - 60px);
+      width: 220px;
+      gap: 1rem;
+      flex-direction: column;
+      align-items: start;
+      padding-left: 1rem;
+      transition: right 0.3s ease;
+      border-left: 1px solid #30363d;
+      z-index: 998;
+    }
+    .nav-links.open {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #c9d1d9;
+    padding: 4rem 1rem 6rem;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #adbac7;
+  }
+  .hero .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero .btn-primary {
+    background-color: #36c2a6;
+    border: none;
+    padding: 1rem 2.25rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    color: #e1e8eb;
+    box-shadow: 0 4px 12px rgb(54 194 166 / 0.6);
+  }
+  .hero .btn-primary:hover,
+  .hero .btn-primary:focus {
+    background-color: #2a9d83;
+    box-shadow: 0 6px 15px rgb(42 157 131 / 0.75);
+  }
+  .hero .btn-secondary {
+    border: 2px solid #36c2a6;
+    background: transparent;
+    color: #36c2a6;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  .hero .btn-secondary:hover,
+  .hero .btn-secondary:focus {
+    background: #36c2a6;
+    color: #0d1117;
+  }
+  /* Hero animation */
+  .hero svg {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 280px;
+    height: 280px;
+    opacity: 0.12;
+    transform: translateY(-50%);
+    user-select: none;
+    pointer-events: none;
+  }
+  /* Section titles */
+  section {
+    padding: 4rem 1rem 4rem;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #36c2a6;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  /* About Us */
+  #about .about-content {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #about .ceo-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  #about .ceo-profile img {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 4px solid #36c2a6;
+    box-shadow: 0 0 18px #36c2a6aa;
+    transition: transform 0.3s ease;
+  }
+  #about .ceo-profile img:hover {
+    transform: scale(1.05);
+  }
+  #about .ceo-bio {
+    max-width: 540px;
+    color: #adbac7;
+    line-height: 1.5;
+  }
+  #about .values-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  #about .value-item {
+    background: #161b22;
+    padding: 1.25rem 1.75rem;
+    border-radius: 10px;
+    flex: 1 1 220px;
+    text-align: center;
+    box-shadow: 0 0 11px #36c2a660;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #about .value-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 5px 24px #2a9d8380;
+  }
+  #about .value-item h4 {
+    margin-bottom: 0.6rem;
+    color: #36c2a6;
+  }
+  #about .value-item p {
+    color: #8b949e;
+    font-size: 1rem;
+  }
+
+  /* Combined Services & Solutions */
+  #services-solutions {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Services cards */
+  #services-solutions .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  #services-solutions .service-card {
+    background: #161b22;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 22px #36c2a660;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  #services-solutions .service-card:hover {
+    box-shadow: 0 0 36px #2a9d8390;
+    transform: translateY(-8px);
+  }
+  #services-solutions .service-card h3 {
+    color: #36c2a6;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+  }
+  #services-solutions .service-card p {
+    flex-grow: 1;
+    color: #a0b2bd;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  #services-solutions .service-icon {
+    margin-bottom: 1rem;
+    width: 44px;
+    height: 44px;
+    fill: #36c2a6;
+  }
+  #services-solutions .service-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Solutions list */
+  #services-solutions .solutions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  #services-solutions .solution-item {
+    background: #161b22;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 15px #36c2a660;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  #services-solutions .solution-image {
+    flex: 1 1 180px;
+    max-width: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #36c2a650;
+    transition: transform 0.3s ease;
+  }
+  #services-solutions .solution-image:hover {
+    transform: scale(1.05);
+  }
+  #services-solutions .solution-image img {
+    width: 100%;
+    display: block;
+  }
+  #services-solutions .solution-text {
+    flex: 3 1 320px;
+    color: #adbac7;
+  }
+  #services-solutions .solution-text h4 {
+    color: #36c2a6;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+  }
+  #services-solutions .industries {
+    text-align: center;
+  }
+  #services-solutions .industries-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  #services-solutions .industry-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #8b949e;
+    width: 90px;
+  }
+  #services-solutions .industry-item svg {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0.35rem;
+    fill: #36c2a6;
+    transition: fill 0.3s ease;
+  }
+  #services-solutions .industry-item:hover svg {
+    fill: #2a9d83;
+  }
+
+  /* Why Choose Us Section */
+  #why-choose-us {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  #why-choose-us h2 {
+    color: #36c2a6;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  #why-choose-us .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  #why-choose-us .feature-box {
+    background: #161b22;
+    border-radius: 12px;
+    box-shadow: 0 0 22px #36c2a655;
+    padding: 2rem 1.5rem;
+    flex: 1 1 200px;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #why-choose-us .feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 36px #2a9d8390;
+  }
+  #why-choose-us .feature-icon {
+    width: 52px;
+    height: 52px;
+    fill: #36c2a6;
+    margin-bottom: 1rem;
+  }
+  #why-choose-us .feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #36c2a6;
+  }
+  #why-choose-us .feature-desc {
+    color: #a0b2bd;
+    font-size: 1rem;
+  }
+
+  /* Animated counters */
+  #counters {
+    background: #161b22;
+    box-shadow: 0 0 40px #36c2a680 inset;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    color: #36c2a6;
+  }
+  #counters .counter-box {
+    flex: 1 1 150px;
+    text-align: center;
+  }
+  #counters .counter-number {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+  #counters .counter-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 0.3rem;
+  }
+
+  /* Support */
+  #support .support-content p {
+    color: #8b949e;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+  #support .contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  #support .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #adbac7;
+  }
+  #support .contact-item svg {
+    fill: #36c2a6;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.45rem;
+  }
+  #support .contact-item a {
+    color: #36c2a6;
+    font-weight: 600;
+  }
+  #support form {
+    max-width: 520px;
+    margin: 0 auto;
+    background-color: #0d1117;
+    padding: 2rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #36c2a6cc;
+  }
+  #support label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #8b949e;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  #support input[type="text"],
+  #support input[type="email"],
+  #support textarea,
+  #support select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1.5px solid #30363d;
+    font-size: 1rem;
+    background-color: #161b22;
+    color: #c9d1d9;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  #support input[type="text"]:focus,
+  #support input[type="email"]:focus,
+  #support textarea:focus,
+  #support select:focus {
+    outline: none;
+    border-color: #36c2a6;
+    box-shadow: 0 0 8px #36c2a6aa;
+  }
+  #support button {
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  /* Support FAQ */
+  #support-faq {
+    max-width: 520px;
+    margin: 2rem auto 0;
+    color: #a0b2bd;
+  }
+  #support-faq summary {
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: #1a222b;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    user-select: none;
+  }
+  #support-faq details[open] summary {
+    background-color: #2a9d83;
+    color: #0d1117;
+  }
+  #support-faq p {
+    padding: 0 1.25rem 1rem 1.25rem;
+    font-size: 1rem;
+  }
+  /* Contact */
+  #contact .contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+  #contact .contact-info {
+    flex: 1 1 320px;
+    color: #8b949e;
+  }
+  #contact .contact-info h3 {
+    color: #36c2a6;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+  }
+  #contact .contact-info p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+  #contact iframe {
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    height: 320px;
+    box-shadow: 0 0 30px #36c2a640;
+  }
+  #contact form.contact-form {
+    flex: 1 1 320px;
+    background-color: #0d1117;
+    padding: 2.25rem 1.75rem;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #36c2a6cc;
+  }
+  #contact form.contact-form label {
+    color: #8b949e;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    font-weight: 600;
+  }
+  #contact form.contact-form input,
+  #contact form.contact-form textarea,
+  #contact form.contact-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.3rem;
+    border-radius: 8px;
+    border: 1.5px solid #30363d;
+    font-size: 1rem;
+    background-color: #161b22;
+    color: #c9d1d9;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  #contact form.contact-form input:focus,
+  #contact form.contact-form textarea:focus,
+  #contact form.contact-form select:focus {
+    outline: none;
+    border-color: #36c2a6;
+    box-shadow: 0 0 9px #36c2a6aa;
+  }
+  #contact form.contact-form button {
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  /* Back to top button */
+  #backToTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #36c2a6;
+    border: none;
+    padding: 0.8rem 1.1rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    display: none;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(54, 194, 166, 0.7);
+    transition: background-color 0.3s ease;
+  }
+  #backToTopBtn:hover {
+    background-color: #2a9d83;
+  }
+
+  /* Chatbot */
+  #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 320px;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px #36c2a670;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #161b22;
+    color: #c9d1d9;
+    user-select: none;
+  }
+  #chatbot-header {
+    background-color: #36c2a6;
+    padding: 0.65rem 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: grab;
+  }
+  #chatbot-messages {
+    padding: 1rem;
+    height: 340px;
+    overflow-y: auto;
+    background: #0d1117;
+    font-size: 0.95rem;
+  }
+  #chatbot-input-area {
+    display: flex;
+    background: #161b22;
+    padding: 0.5rem;
+    border-top: 1px solid #30363d;
+  }
+  #chatbot-input {
+    flex-grow: 1;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-size: 1rem;
+    resize: none;
+  }
+  #chatbot-send {
+    background-color: #36c2a6;
+    border: none;
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  #chatbot-send:hover {
+    background-color: #2a9d83;
+  }
+  .chatbot-msg {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .chatbot-msg.agent {
+    color: #36c2a6;
+  }
+  .chatbot-msg.user {
+    color: #a0b2bd;
+    text-align: right;
+  }
+
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav aria-label="Primary navigation">
+      <a href="index.html" class="logo" tabindex="1" aria-label="Home and company logo text">AdvElectronicx</a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#home" tabindex="2">Home</a>
+        <a href="index.html#about" tabindex="3">About Us</a>
+        <a href="index.html#services-solutions" tabindex="4">Services &amp; Solutions</a>
+        <a href="index.html#support" tabindex="5">Support</a>
+        <a href="index.html#contact" tabindex="6">Contact</a>
+        <a href="iot-gateway.html" tabindex="7" style="color:#36c2a6; font-weight:bold; border-bottom: 2px solid #36c2a6; padding-bottom:2px;">IoT Gateway</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" role="button" tabindex="8">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero" tabindex="0" aria-label="Home section with company hero message">
+    <h1>Empowering Industries with Advanced Electronics Solutions</h1>
+    <p>Your Partner in Industrial Automation, IT Infrastructure, and IoT Innovations</p>
+    <div class="buttons">
+      <a href="#services-solutions" class="btn-primary" role="button" tabindex="9">Explore Our Services &amp; Solutions</a>
+      <a href="#contact" class="btn-secondary" role="button" tabindex="10">Get Started</a>
+    </div>
+    <svg aria-hidden="true" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="30" stroke="#36c2a6" stroke-width="2" />
+      <circle cx="32" cy="32" r="16" stroke="#2a9d83" stroke-width="2" />
+      <path d="M32 16v32M16 32h32" stroke="#36c2a6" stroke-width="2" />
+    </svg>
+  </section>
+
+  <section id="about" aria-label="About us section">
+    <div class="container about-content">
+      <p class="section-title">About Us</p>
+      <div class="ceo-profile">
+        <img src="image\GAURAV UPSCIMG.jpg" alt="CEO portrait image" />
+
+        <div class="ceo-bio">
+          <h2>Meet Our CEO</h2>
+          <p>Gaurav Sahu is an industry veteran with over 2 years of experience leading cutting-edge electronics and automation projects worldwide. His vision drives our commitment to quality, innovation, and trusted partnerships.</p>
+        </div>
+      </div>
+      <h3>Our Mission &amp; Values</h3>
+      <p>We deliver end-to-end electronics and IT solutions to empower industries. Our core values are innovation, quality, collaboration, and customer satisfaction.</p>
+      <div class="values-list" aria-label="Core company values">
+        <div class="value-item" tabindex="0">
+          <h4>Innovation</h4>
+          <p>Driving technology forward with creative solutions.</p>
+        </div>
+        <div class="value-item" tabindex="0">
+          <h4>Quality</h4>
+          <p>Delivering reliable, high-performance electronics.</p>
+        </div>
+        <div class="value-item" tabindex="0">
+          <h4>Collaboration</h4>
+          <p>Partnering closely for seamless project success.</p>
+        </div>
+        <div class="value-item" tabindex="0">
+          <h4>Support</h4>
+          <p>Commitment to customer satisfaction and support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated counters -->
+  <section id="counters" aria-label="Company Achievements">
+    <div class="counter-box" tabindex="0">
+      <div class="counter-number" data-target="2">0</div>
+      <div class="counter-label">Years Experience</div>
+    </div>
+    <div class="counter-box" tabindex="0">
+      <div class="counter-number" data-target="25">0</div>
+      <div class="counter-label">Projects Completed</div>
+    </div>
+    <div class="counter-box" tabindex="0">
+      <div class="counter-number" data-target="5">0</div>
+      <div class="counter-label">Satisfied Clients</div>
+    </div>
+    <div class="counter-box" tabindex="0">
+      <div class="counter-number" data-target="5">0</div>
+      <div class="counter-label">Industries Served</div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-choose-us" aria-label="Why Choose Us Section" tabindex="0">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature-box" tabindex="0">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17l-3.5-3.5L4 14l5 5 9-9-1.5-1.5z"/></svg>
+        <div class="feature-title">Trusted Expertise</div>
+        <div class="feature-desc">Decades of technical experience and successful project delivery.</div>
+      </div>
+      <div class="feature-box" tabindex="0">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM21 7.04a1.5 1.5 0 000-2.12l-2.12-2.12-3.75 3.75 2.12 2.12a1.5 1.5 0 002.12 0l1.63-1.63z"/></svg>
+        <div class="feature-title">Innovative Solutions</div>
+        <div class="feature-desc">Cutting-edge technology with adaptable and scalable services.</div>
+      </div>
+      <div class="feature-box" tabindex="0">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 9H9v6h6V9zM12 3C7.03 3 3 7.03 3 12c0 2.16.91 4.13 2.38 5.53l-1.44 1.45 1.41 1.41 1.45-1.43c1.4 1.2 3.34 1.91 5.2 1.91 4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+        <div class="feature-title">24/7 Support</div>
+        <div class="feature-desc">Reliable customer service and rapid technical assistance.</div>
+      </div>
+      <div class="feature-box" tabindex="0">
+        <svg class="feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2V5a2 2 0 00-2-2zm-6 15h-2v-2h2v2zm0-4h-2V6h2v8z"/></svg>
+        <div class="feature-title">Compliance</div>
+        <div class="feature-desc">Strict adherence to industry standards ensuring quality and safety.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services-solutions" aria-label="Combined services and solutions section">
+    <div class="container">
+      <p class="section-title">Services &amp; Solutions</p>
+
+      <!-- Services cards -->
+      <div class="services-list">
+        <article class="service-card" tabindex="0" aria-label="Industrial Automation Support service">
+          <div class="service-flex">
+            <svg class="service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 13v-2h-3V7c0-1.11-0.89-2-2-2H8c-1.11 0-2 0.89-2 2v4H3v2h3v4c0 1.66 1.34 3 3 3h6c1.66 0 3-1.34 3-3v-4h3zm-8 5H9v-4h4v4zm4-4v4h-2v-4h2z"/></svg>
+            <div>
+              <h3>Industrial Automation Support (PLC, SCADA)</h3>
+              <p>Comprehensive integration and maintenance for PLC programming, SCADA systems, and factory automation. Our tailored solutions optimize your production, reduce downtime, and improve control system efficiency.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="IT Solutions and Infrastructure service">
+          <div class="service-flex">
+            <svg class="service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v10h-4v4h-8v-4H4z"/></svg>
+            <div>
+              <h3>IT Solutions and Infrastructure</h3>
+              <p>Industry-grade IT infrastructure design and management including server virtualization, networking, cloud integration, and cybersecurity solutions to keep your systems robust and secure.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Electronic Circuit and Hardware Design service">
+          <div class="service-flex">
+            <svg class="service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 3v18h18V3H3zm8 14H7v-2h4v2zm6-6h-4v2h4v-2z"/></svg>
+            <div>
+              <h3>Electronic Circuit and Hardware Design</h3>
+              <p>Custom PCB design, prototyping, and hardware engineering to meet complex electronics requirements. We ensure high reliability and manufacturability for your electronic products.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="IoT Gateway Solutions service">
+          <div class="service-flex">
+            <svg class="service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3C8.13 3 5 6.13 5 10c0 3.87 3.13 7 7 7s7-3.13 7-7c0-3.87-3.13-7-7-7zm-3 4h2v6H9v-6zm4 0h2v6h-2v-6zm3 6h-2v4h2v-4z"/></svg>
+            <div>
+              <h3>IoT Gateway Solutions</h3>
+              <p>Feature-rich gateways supporting Modbus, MQTT, HTTP, RS485/RS232 communications, and secure cloud connectivity. Tailored for industrial IoT, our gateways simplify device integration and data management.</p>
+              <a href="iot-gateway.html" style="color:#36c2a6; font-weight:700; text-decoration: underline;">Explore our IoT Gateway</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Firmware Development and Embedded Systems Support service">
+          <div class="service-flex">
+            <svg class="service-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3v18h14V3H5zm7 16h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>
+            <div>
+              <h3>Embedded Systems &amp; Firmware Development</h3>
+              <p>Comprehensive design and coding of embedded firmware with testing and in-field debugging for efficient and reliable device solutions. Full integration support included for complex hardware environments.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Solutions use cases -->
+      <div class="solutions-list">
+        <article class="solution-item" tabindex="0">
+          <div class="solution-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Smart Factory automation" />
+          </div>
+          <div class="solution-text">
+            <h4>Smart Factory Automation</h4>
+            <p>Deploy scalable PLC &amp; SCADA systems to enhance operational efficiency, realtime data acquisition, and predictive maintenance.</p>
+          </div>
+        </article>
+        <article class="solution-item" tabindex="0">
+          <div class="solution-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Remote Monitoring" />
+          </div>
+          <div class="solution-text">
+            <h4>Remote Monitoring &amp; IoT</h4>
+            <p>Robust IoT gateway deployments for facility monitoring, cloud analytics, and proactive alerting in remote locations.</p>
+          </div>
+        </article>
+        <article class="solution-item" tabindex="0">
+          <div class="solution-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Embedded System field integration" />
+          </div>
+          <div class="solution-text">
+            <h4>Embedded Systems &amp; Field Integration</h4>
+            <p>Comprehensive field support and firmware development ensure reliable device operation and seamless integration with existing infrastructure.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Industries served -->
+      <div class="industries" aria-label="Industries served" style="margin-top:3rem;">
+        <h3>Industries Served</h3>
+        <div class="industries-list">
+          <div class="industry-item" tabindex="0" title="Manufacturing">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16v-2H4v2zM19 9h-3V7c0-1.103-.897-2-2-2H10c-1.103 0-2 .897-2 2v2H5c-1.103 0-2 .897-2 2v5h18v-5c0-1.103-.897-2-2-2zm-6-2h2v2h-2V7zm-2 0h2v2h-2V7z"></path></svg>
+            <span>Manufacturing</span>
+          </div>
+          <div class="industry-item" tabindex="0" title="Healthcare">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5v18h14V3zm-3 14h-4v-4H8v-2h4V7h2v4h4v2h-4v4z"></path></svg>
+            <span>Healthcare</span>
+          </div>
+          <div class="industry-item" tabindex="0" title="Logistics">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8h-3V6H7v10h10v-2h3v4h-4v2h5V8zM3 7H1v14h14v-2H3V7z"></path></svg>
+            <span>Logistics</span>
+          </div>
+          <div class="industry-item" tabindex="0" title="Energy">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6H5.471L8 8l5 7h-3v5zM13 4h-2V2h2v2z"></path></svg>
+            <span>Energy</span>
+          </div>
+          <div class="industry-item" tabindex="0" title="Agriculture">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l3 7H6l3 7H5l-3-7 3-7zM12 8l1 7h3l-1-7h-3zm5-6l3 7-3 7h-1l3-7-3-7h1z"></path></svg>
+            <span>Agriculture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" aria-label="Technical support and contact options">
+    <div class="container support-content">
+      <p class="section-title">Support</p>
+      <p>We provide dedicated technical support with quick responses and a full suite of documentation to assist your projects. Reach out anytime using the form below, phone, or email.</p>
+      <div class="contact-methods" role="list">
+        <div class="contact-item" role="listitem" tabindex="0" aria-label="Phone support">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.58 6.58l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.54.57 1 1 0 011 1v3.75a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.75a1 1 0 011 1 11.36 11.36 0 00.57 3.54 1 1 0 01-.2 1.11l-2.5 2.5z"></path></svg>
+          <span>+91 7999740297</span>
+        </div>
+        <div class="contact-item" role="listitem" tabindex="0" aria-label="Email support">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16z"></path></svg>
+          <span>support@advelectronics.com</span>
+        </div>
+        <div class="contact-item" role="listitem" tabindex="0" aria-label="Documentation access">
+          <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2zm9 5V3.5L18.5 7H15z"></path></svg>
+          <a href="#support-docs" style="color:#36c2a6;" tabindex="0">Documentation</a>
+        </div>
+      </div>
+      <form id="support-form" aria-label="Request technical support form" novalidate>
+        <label for="support-name">Name</label>
+        <input type="text" id="support-name" name="name" required aria-required="true" placeholder="Your full name" />
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter your name.</small>
+
+        <label for="support-email">Email</label>
+        <input type="email" id="support-email" name="email" required aria-required="true" placeholder="Your email address" />
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter a valid email.</small>
+
+        <label for="support-message">Message</label>
+        <textarea id="support-message" name="message" rows="5" required aria-required="true" placeholder="Describe your issue or request"></textarea>
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter your message.</small>
+
+        <input type="submit" value="Request Support" />
+      </form>
+      <!-- FAQ Collapsible -->
+      <div id="support-faq" aria-label="Support frequently asked questions" tabindex="0">
+        <details>
+          <summary>What response times can I expect for support?</summary>
+          <p>We typically respond within 24 hours during business days to ensure prompt assistance.</p>
+        </details>
+        <details>
+          <summary>Where can I find documentation for your services?</summary>
+          <p>Documentation is accessible via the link above or by contacting support directly.</p>
+        </details>
+        <details>
+          <summary>How do I request a custom solution?</summary>
+          <p>Please fill the support form with your requirements, and a consultant will contact you.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact form and location">
+    <div class="container contact-content">
+      <aside class="contact-info" tabindex="0" aria-label="Contact information and location">
+        <h3>Contact Us</h3>
+        <p>Have questions or need a custom quote? Reach out to our team or visit us at our office.</p>
+        <p><strong>Phone:</strong> +91 7999740297</p>
+        <p><strong>Email:</strong> officialgauravsahu@gmail.com</p>
+        <p><strong>Address:</strong> Vadodara, Gujarat, India 390007</p>
+        <iframe
+          title="Company Location Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.6551362043904!2d-74.00601548459303!3d40.71277577933015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a19d98de94d%3A0x3d2ae4f44585b2ec!2sInnovation%20Way%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1685123456789!5m2!1sen!2s"
+          allowfullscreen=""
+          loading="lazy"></iframe>
+      </aside>
+      <form class="contact-form" id="contact-form" aria-label="Contact form" tabindex="0" novalidate>
+        <label for="contact-name">Full Name</label>
+        <input type="text" id="contact-name" name="fullname" required aria-required="true" placeholder="Your full name" />
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter your full name.</small>
+
+        <label for="contact-email">Email Address</label>
+        <input type="email" id="contact-email" name="emailaddress" required aria-required="true" placeholder="Your email address" />
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter a valid email.</small>
+
+        <label for="contact-phone">Phone Number</label>
+        <input type="tel" id="contact-phone" name="phone" placeholder="Optional" />
+
+        <label for="contact-inquiry">Inquiry Type</label>
+        <select id="contact-inquiry" name="inquiry" required aria-required="true">
+          <option value="" disabled selected>Select inquiry type</option>
+          <option value="services">Services</option>
+          <option value="support">Support</option>
+          <option value="consulting">Consulting</option>
+          <option value="other">Other</option>
+        </select>
+        <small class="error-message" style="color:#ec5f67; display:none;">Please select an inquiry type.</small>
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="4" required aria-required="true" placeholder="Your message"></textarea>
+        <small class="error-message" style="color:#ec5f67; display:none;">Please enter your message.</small>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+    <p style="color: white; font-size: 1rem; user-select: none; text-align: center; padding: 1.5rem 1rem; font-weight: 600; margin: 0;">
+      © 2025 Advanced Electronics Services | Excellence in Industrial Automation &amp; IoT Solutions
+    </p>
+  </footer>
+  
+
+<!-- Back to top button -->
+<button id="backToTopBtn" aria-label="Back to top">↑</button>
+
+<!-- Chatbot widget -->
+<div id="chatbot" role="dialog" aria-live="polite" aria-hidden="true" aria-label="Chatbot support widget">
+  <div id="chatbot-header" tabindex="0">
+    Support Chat
+    <button aria-label="Close chat" id="chatbot-close-btn" style="background:none;border:none;color:white;font-size:1.3rem;cursor:pointer;">✕</button>
+  </div>
+  <div id="chatbot-messages" aria-live="polite"></div>
+  <div id="chatbot-input-area">
+    <textarea id="chatbot-input" rows="1" aria-label="Type your message here" placeholder="Ask me anything..."></textarea>
+    <button id="chatbot-send" aria-label="Send message">▶</button>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+
+  // Back to top button
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Animated counters
+  const counters = document.querySelectorAll('.counter-number');
+  const countersOptions = {
+    threshold: 1.0
+  };
+  const countersObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 150;
+            if(count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+        observer.disconnect();
+      }
+    });
+  }, countersOptions);
+  countersObserver.observe(document.getElementById('counters'));
+
+  // Support form validation and submission simulation
+  const supportForm = document.getElementById('support-form');
+  supportForm.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    ['support-name', 'support-email', 'support-message'].forEach(id => {
+      const el = document.getElementById(id);
+      const errorEl = el.nextElementSibling;
+      if (!el.value.trim() || (el.type === 'email' && !validateEmail(el.value))) {
+        errorEl.style.display = 'block';
+        valid = false;
+      } else {
+        errorEl.style.display = 'none';
+      }
+    });
+    if(valid){
+      alert('Support request submitted! Our team will contact you shortly.');
+      supportForm.reset();
+    }
+  });
+
+  // Contact form validation and submission simulation
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    ['contact-name', 'contact-email', 'contact-inquiry', 'contact-message'].forEach(id => {
+      const el = document.getElementById(id);
+      const errorEl = el.nextElementSibling;
+      if (!el.value.trim() || (el.type === 'email' && !validateEmail(el.value))) {
+        errorEl.style.display = 'block';
+        valid = false;
+      } else if (el.tagName === 'SELECT' && el.value === '') {
+        errorEl.style.display = 'block';
+        valid = false;
+      } else {
+        errorEl.style.display = 'none';
+      }
+    });
+    if(valid){
+      alert('Thank you for contacting us! We will get back to you soon.');
+      contactForm.reset();
+    }
+  });
+
+  function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+  // Chatbot Widget
+  const chatbot = document.getElementById('chatbot');
+  const chatbotHeader = document.getElementById('chatbot-header');
+  const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotSend = document.getElementById('chatbot-send');
+
+  // Initially hidden
+  chatbot.style.display = 'none';
+  // Floating button to toggle chatbot
+  const chatToggleBtn = document.createElement('button');
+  chatToggleBtn.textContent = 'Chat';
+  chatToggleBtn.setAttribute('aria-label', 'Open chat support');
+  chatToggleBtn.style.position = 'fixed';
+  chatToggleBtn.style.bottom = '20px';
+  chatToggleBtn.style.right = '80px';
+  chatToggleBtn.style.backgroundColor = '#36c2a6';
+  chatToggleBtn.style.color = 'white';
+  chatToggleBtn.style.border = 'none';
+  chatToggleBtn.style.padding = '0.75rem 1.25rem';
+  chatToggleBtn.style.borderRadius = '24px';
+  chatToggleBtn.style.cursor = 'pointer';
+  chatToggleBtn.style.boxShadow = '0 4px 12px rgba(54,194,166,0.7)';
+  chatToggleBtn.style.zIndex = '10001';
+  document.body.appendChild(chatToggleBtn);
+
+  chatToggleBtn.addEventListener('click', () => {
+    if(chatbot.style.display === 'none'){
+      chatbot.style.display = 'flex';
+      chatToggleBtn.style.display = 'none';
+      chatbot.setAttribute('aria-hidden', 'false');
+      chatbotInput.focus();
+      addBotMessage("Hello! How can I help you today? Ask me about our services or products.");
+    }
+  });
+
+  chatbotCloseBtn.addEventListener('click', closeChatbot);
+  function closeChatbot() {
+    chatbot.style.display = 'none';
+    chatToggleBtn.style.display = 'block';
+    chatbot.setAttribute('aria-hidden', 'true');
+    clearMessages();
+  }
+  chatbotHeader.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      closeChatbot();
+    }
+  });
+
+  chatbotSend.addEventListener('click', sendUserMessage);
+  chatbotInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendUserMessage();
+    }
+  });
+
+  function sendUserMessage() {
+    const msg = chatbotInput.value.trim();
+    if(msg.length === 0) return;
+    addUserMessage(msg);
+    chatbotInput.value = '';
+    // Simple bot response simulation with delay
+    setTimeout(() => {
+      const response = generateBotReply(msg);
+      addBotMessage(response);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }, 800);
+  }
+
+  function addUserMessage(msg) {
+    const msgDiv = document.createElement('div');
+    msgDiv.textContent = msg;
+    msgDiv.className = 'chatbot-msg user';
+    chatbotMessages.appendChild(msgDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  function addBotMessage(msg) {
+    const msgDiv = document.createElement('div');
+    msgDiv.textContent = msg;
+    msgDiv.className = 'chatbot-msg agent';
+    chatbotMessages.appendChild(msgDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+  function clearMessages() {
+    chatbotMessages.innerHTML = '';
+  }
+
+  function generateBotReply(userMsg) {
+    const msg = userMsg.toLowerCase();
+    if(msg.includes('iot')) return "Our IoT Gateway supports Modbus, MQTT, HTTP, RS485, RS232 and offers seamless cloud connectivity.";
+    if(msg.includes('services')) return "We provide industrial automation, IT infrastructure, circuit design, IoT gateways, embedded systems and firmware development.";
+    if(msg.includes('contact')) return "You can contact us via the form on the website or call us at +1 (555) 123-4567.";
+    if(msg.includes('support')) return "Our support team is available 24/7. Please use the support form to make detailed requests.";
+    if(msg.includes('price')) return "Please contact sales for price quotations tailored to your project requirements.";
+    return "Thank you for reaching out! Could you please provide more details on your inquiry?";
+  }
+</script>
+</body>
+</html>
